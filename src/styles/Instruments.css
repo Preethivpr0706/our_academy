@@ -1,0 +1,291 @@
+.instruments-container {
+    background-color: #0f172a;
+    color: white;
+    min-height: 100vh;
+    padding: 40px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .instruments-header {
+    text-align: center;
+    margin-bottom: 60px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .instruments-header h1 {
+    font-size: 2.5rem;
+    color: #facc15;
+    margin-bottom: 16px;
+    position: relative;
+    padding-bottom: 20px;
+    font-weight: 700;
+  }
+  
+  .instruments-header h1::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background-color: #facc15;
+  }
+  
+  .instruments-header p {
+    font-size: 1.25rem;
+    color: #e2e8f0;
+    line-height: 1.6;
+  }
+  
+  .back-button {
+    display: inline-block;
+    margin-top: 24px;
+    padding: 10px 24px;
+    background-color: transparent;
+    color: #facc15;
+    border: 2px solid #facc15;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+  }
+  
+  .back-button:hover {
+    background-color: #facc15;
+    color: #0f172a;
+  }
+  
+  /* Grid layout for the instrument cards */
+  .instruments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  .instrument-card {
+    background: linear-gradient(145deg, #1e293b, #0f172a);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .instrument-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(250, 204, 21, 0.3);
+  }
+  
+  .instrument-image-container {
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .instrument-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .instrument-card:hover .instrument-image {
+    transform: scale(1.05);
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .overlay span {
+    color: white;
+    font-weight: 600;
+    background-color: rgba(250, 204, 21, 0.8);
+    color: #0f172a;
+    padding: 8px 16px;
+    border-radius: 4px;
+  }
+  
+  .instrument-card:hover .overlay {
+    opacity: 1;
+  }
+  
+  .instrument-name {
+    padding: 16px;
+    font-size: 1.5rem;
+    color: #facc15;
+    margin: 0;
+    border-bottom: 1px solid rgba(250, 204, 21, 0.2);
+  }
+  
+  .instrument-brief {
+    padding: 16px;
+    color: #e2e8f0;
+    line-height: 1.5;
+    font-size: 0.95rem;
+    margin: 0;
+  }
+  
+  /* Detailed view styling */
+  .detailed-view {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  
+  .detailed-instrument {
+    background: linear-gradient(145deg, #1e293b, #0f172a);
+    border-radius: 8px;
+    width: 100%;
+    max-width: 1000px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border: 1px solid rgba(250, 204, 21, 0.3);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s ease;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .detailed-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .detailed-image-container {
+    height: 300px;
+    overflow: hidden;
+  }
+  
+  .detailed-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .detailed-info {
+    padding: 30px;
+  }
+  
+  .detailed-info h2 {
+    color: #facc15;
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 24px;
+    border-bottom: 2px solid rgba(250, 204, 21, 0.3);
+    padding-bottom: 12px;
+  }
+  
+  .info-section {
+    margin-bottom: 24px;
+  }
+  
+  .info-section h3 {
+    color: #facc15;
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .info-section h3::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background-color: #facc15;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .info-section p {
+    color: #e2e8f0;
+    line-height: 1.7;
+    font-size: 1rem;
+    margin: 0;
+  }
+  
+  .close-button {
+    background-color: #facc15;
+    color: #0f172a;
+    border: none;
+    padding: 10px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+  }
+  
+  .close-button:hover {
+    background-color: #eab308;
+    transform: translateY(-2px);
+  }
+  
+  /* Responsive styles */
+  @media (min-width: 768px) {
+    .instruments-container {
+      padding: 60px 40px;
+    }
+    
+    .detailed-content {
+      flex-direction: row;
+    }
+    
+    .detailed-image-container {
+      width: 40%;
+      height: auto;
+      min-height: 400px;
+    }
+    
+    .detailed-info {
+      width: 60%;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .instruments-header h1 {
+      font-size: 3rem;
+    }
+    
+    .instruments-container {
+      padding: 80px 60px;
+    }
+    
+    .detailed-image-container {
+      min-height: 500px;
+    }
+  }
